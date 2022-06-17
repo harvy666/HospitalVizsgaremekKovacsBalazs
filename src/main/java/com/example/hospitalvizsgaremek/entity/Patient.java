@@ -1,29 +1,29 @@
 package com.example.hospitalvizsgaremek.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+
 //todo validate all field+ add table/column name
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Doctor {
+public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private int age;
 
-
-
-//    @OneToMany(mappedBy = "zoo")
-//    @JsonManagedReference
-    private List<Patient> patients;
+//    @ManyToOne
+//    @JsonBackReference
+    private Doctor doctor;
+    private Receipt receipt;
 }
