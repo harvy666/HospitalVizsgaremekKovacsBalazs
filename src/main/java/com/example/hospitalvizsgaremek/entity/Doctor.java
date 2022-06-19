@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 //todo validate all field+ add table/column name
 
@@ -19,11 +21,15 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotBlank
     private String name;
 
 
 
-//    @OneToMany(mappedBy = "zoo")
-//    @JsonManagedReference
+    @OneToMany(mappedBy = "doctor")
+    @JsonManagedReference
+    @NotNull
+
     private List<Patient> patients;
 }
