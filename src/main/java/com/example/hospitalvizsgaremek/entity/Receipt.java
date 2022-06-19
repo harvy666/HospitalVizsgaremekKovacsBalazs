@@ -13,15 +13,12 @@ import javax.validation.constraints.NotNull;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 
 public class Receipt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     @NotBlank
@@ -32,7 +29,6 @@ public class Receipt {
 
 
     @OneToOne
-    @NotNull
-
     private Patient patient;
+
 }

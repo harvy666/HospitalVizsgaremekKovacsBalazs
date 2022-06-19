@@ -13,8 +13,6 @@ import java.util.List;
 //todo validate all field+ add table/column name
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Doctor {
 
@@ -29,7 +27,5 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor")
     @JsonManagedReference
-    @NotNull
-
     private List<Patient> patients;
 }
