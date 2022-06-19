@@ -13,6 +13,8 @@ import java.util.List;
 //todo validate all field+ add table/column name
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Doctor {
 

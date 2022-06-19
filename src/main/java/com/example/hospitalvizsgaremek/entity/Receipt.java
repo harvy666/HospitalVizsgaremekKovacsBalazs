@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 
 public class Receipt {

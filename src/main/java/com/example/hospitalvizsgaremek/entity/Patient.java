@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 //todo validate all field+ add table/column name+onetoone and many anno
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Patient {
 
