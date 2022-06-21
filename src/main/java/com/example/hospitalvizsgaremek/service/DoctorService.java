@@ -22,4 +22,13 @@ public class DoctorService {
     public Doctor getDoctorById(Long id) {
         return doctorRepository.findById(id).orElseThrow();
     }
+
+    public void deleteDoctorById(Long id) {
+        doctorRepository.deleteById(id);
+    }
+
+
+    public void saveDoctor(Doctor doctor) {
+         doctorRepository.save(doctor);
+    }
 }
