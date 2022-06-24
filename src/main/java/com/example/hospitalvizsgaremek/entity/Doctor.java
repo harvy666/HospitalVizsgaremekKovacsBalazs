@@ -27,7 +27,8 @@ public class Doctor {
 
 
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,
+    mappedBy = "doctor", orphanRemoval = true)
     @JsonManagedReference
     private List<Patient> patients;
 }
