@@ -11,6 +11,7 @@ public class DoctorService {
 
     private DoctorRepository doctorRepository;
 
+
     public DoctorService(DoctorRepository doctorRepository) {
         this.doctorRepository = doctorRepository;
     }

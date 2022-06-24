@@ -20,12 +20,12 @@ public class DoctorController {
     @GetMapping
     public List<Doctor> getAllDoctors() {
         return doctorService.getAllDoctors();
-    }
+    } //OK
 
     @GetMapping("/{id}")
     public Doctor getDoctorById(@PathVariable Long id) {
         return doctorService.getDoctorById(id);
-    }
+    } //OK
 
     @DeleteMapping("/{id}")
 

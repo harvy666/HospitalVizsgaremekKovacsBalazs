@@ -22,4 +22,8 @@ public class ReceiptService {
     public Receipt getReceiptById(Long id) {
         return receiptRepository.findById(id).orElseThrow();
     }
+
+    public void deleteReceipt(Long id) {
+        receiptRepository.deleteById(id);
+    }
 }
