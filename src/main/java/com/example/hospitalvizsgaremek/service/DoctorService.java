@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
@@ -32,4 +33,6 @@ public class DoctorService {
     public void saveDoctor(Doctor doctor) {
          doctorRepository.save(doctor);
     }
+
+
 }

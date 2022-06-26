@@ -18,37 +18,37 @@ public class DoctorController {
     }
 
     @GetMapping
-    public List<Doctor> getAllDoctors() {
+    public List<Doctor> getAllDoctors() { //OK
         return doctorService.getAllDoctors();
-    } //OK
+    }
 
     @GetMapping("/{id}")
     public Doctor getDoctorById(@PathVariable Long id) {
         return doctorService.getDoctorById(id);
     } //OK
 
+
     @DeleteMapping("/{id}")
 
     public void deleteDoctorById(@PathVariable Long id) {
         doctorService.deleteDoctorById(id);
-    }
+    } //OK
 
 
-    //todo return only a DoctorDTO w/o patients+their receipts?
 
     @PostMapping
 
     public void saveDoctor(@RequestBody Doctor doctor) {
     doctorService.saveDoctor(doctor);
-    }
+    } //OK adding a new doctor with a patient creates the patient to (checked by its own findAll)
 
-
-    @PutMapping("/{id}")
-    public void updateDoctorById(@PathVariable Long id, @RequestBody Doctor doctor) {
-        doctor.setId(id);
-        doctorService.saveDoctor(doctor);
-
-    }
+//
+//    @PutMapping("/{id}")
+//    public void updateDoctorById(@PathVariable Long id, @RequestBody Doctor doctor) {
+//        doctor.setId(id);
+//        doctorService.saveDoctor(doctor);
+//
+//    }
 
 
 }

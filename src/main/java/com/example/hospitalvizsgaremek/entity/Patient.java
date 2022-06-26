@@ -2,6 +2,7 @@ package com.example.hospitalvizsgaremek.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +18,12 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
 public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long id;
 
     @NotBlank
@@ -30,8 +33,12 @@ public class Patient {
     private int age;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    //@JoinColumn(name = "doctor_id")
     @JsonBackReference
+
+    @JoinColumn(name = "doctor_id")
+
+    //@JsonManagedReference //maybe good?
     private Doctor doctor;
 
     @OneToOne
