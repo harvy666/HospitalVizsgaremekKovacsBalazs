@@ -30,13 +30,13 @@ public class ReceiptController {
     @PostMapping
     public void saveReceipt(@RequestBody Receipt receipt){ //OK
         receiptService.save(receipt);
-    }
+    } //OK
 
     @DeleteMapping("/{id}")
 
     public void deleteReceipt(@PathVariable Long id) {
          receiptService.deleteReceipt(id);
-    } //OK
+    } //TODO NOT WORKING (needed?)
 
     @PutMapping("/{id}")
 

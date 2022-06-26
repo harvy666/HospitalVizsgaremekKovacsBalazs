@@ -2,6 +2,7 @@ package com.example.hospitalvizsgaremek.controller;
 
 
 import com.example.hospitalvizsgaremek.entity.Doctor;
+import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.service.DoctorService;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +43,12 @@ public class DoctorController {
     doctorService.saveDoctor(doctor);
     } //OK adding a new doctor with a patient creates the patient to (checked by its own findAll)
 
+
+    @PostMapping("/{id}/patient")
+
+    public void savePatient(@PathVariable Long id, @RequestBody Patient patient) {
+        doctorService.savePatient(id,patient);
+    }
 //
 //    @PutMapping("/{id}")
 //    public void updateDoctorById(@PathVariable Long id, @RequestBody Doctor doctor) {

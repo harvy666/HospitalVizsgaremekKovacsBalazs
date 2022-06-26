@@ -33,13 +33,14 @@ public class Patient {
     private int age;
 
     @ManyToOne
-    //@JoinColumn(name = "doctor_id")
-    @JsonBackReference
+
 
     @JoinColumn(name = "doctor_id")
+    @JsonBackReference
 
     //@JsonManagedReference //maybe good?
     private Doctor doctor;
+
 
     @OneToOne
     private Receipt receipt;

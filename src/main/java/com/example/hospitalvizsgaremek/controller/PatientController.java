@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PatientController {
 
-    private  PatientService patientService;
+    private PatientService patientService;
 
 
     public PatientController(PatientService patientService) {
@@ -23,9 +23,9 @@ public class PatientController {
         return patientService.getAllPatients();
     } //OK
 
-    @GetMapping ("/{id}")
+    @GetMapping("/{id}")
 
-    public Patient getPatientById(@PathVariable Long id){
+    public Patient getPatientById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     } //OK
 
@@ -40,7 +40,7 @@ public class PatientController {
 
     public void savePatient(@RequestBody Patient patient) {
         patientService.save(patient);
-    } //TODO how to save a Patient to a specific Doctor?
+//    } //TODO how to save a Patient to a specific Doctor?  In the Doctor repo?
 
 
 //    //meg kell adni az id-t a Jsonban akkor felulirja a Beteget, de az Orvosbol tovabbra is eltunik
@@ -51,4 +51,5 @@ public class PatientController {
 //
 //    }
 
+    }
 }
