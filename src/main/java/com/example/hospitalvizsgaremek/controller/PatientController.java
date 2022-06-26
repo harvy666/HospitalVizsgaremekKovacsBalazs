@@ -36,10 +36,10 @@ public class PatientController {
     } //OK
 
 
-    @PostMapping
-
-    public void savePatient(@RequestBody Patient patient) {
-        patientService.save(patient);
+//    @PostMapping
+//
+//    public void savePatient(@RequestBody Patient patient) {
+//        patientService.save(patient);
 //    } //TODO how to save a Patient to a specific Doctor?  In the Doctor repo?
 
 
@@ -52,4 +52,4 @@ public class PatientController {
 //    }
 
     }
-}
+
