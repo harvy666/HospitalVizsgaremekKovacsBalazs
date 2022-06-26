@@ -20,16 +20,28 @@ public class ReceiptController {
     @GetMapping
     public List<Receipt> getAllReceipts() {
         return receiptService.getAllReceipts();
-    }
+    } //OK
 
     @GetMapping("/{id}")
     public Receipt getReceiptById(@PathVariable Long id){
         return receiptService.getReceiptById(id);
+    } //OK
+
+    @PostMapping
+    public void saveReceipt(@RequestBody Receipt receipt){ //OK
+        receiptService.save(receipt);
     }
 
     @DeleteMapping("/{id}")
 
     public void deleteReceipt(@PathVariable Long id) {
          receiptService.deleteReceipt(id);
+    } //OK
+
+    @PutMapping("/{id}")
+
+    public  void updateReceipt(@PathVariable Long id, @RequestBody Receipt receipt){ //OK
+        receipt.setId(id);
+        receiptService.save(receipt);
     }
 }

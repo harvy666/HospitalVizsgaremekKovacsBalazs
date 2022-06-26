@@ -26,4 +26,8 @@ public class ReceiptService {
     public void deleteReceipt(Long id) {
         receiptRepository.deleteById(id);
     }
+
+    public void save(Receipt receipt) {
+        receiptRepository.save(receipt);
+    }
 }
