@@ -4,10 +4,14 @@ import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.ReceiptService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/receipt")
@@ -34,8 +38,19 @@ public class ReceiptController {
     } //OK
 
     @PostMapping
-    public void saveReceipt(@RequestBody Receipt receipt){ //OK
-        receiptService.save(receipt);
+    public ResponseEntity<?> saveReceipt(@RequestBody @Valid Receipt receipt, BindingResult result){ //OK
+
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(
+                    result.getFieldErrors().stream()
+                            .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage))
+                            .toString()
+            );
+        }
+        return ResponseEntity.ok().body(receiptService.save(receipt));
+
+
+       // receiptService.save(receipt);
     } //OK
 
     @DeleteMapping("/{id}")
