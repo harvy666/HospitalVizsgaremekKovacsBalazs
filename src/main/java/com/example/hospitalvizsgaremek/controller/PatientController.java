@@ -2,9 +2,11 @@ package com.example.hospitalvizsgaremek.controller;
 
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.service.PatientService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/patient")
@@ -25,15 +27,27 @@ public class PatientController {
 
     @GetMapping("/{id}")
 
-    public Patient getPatientById(@PathVariable Long id) {
-        return patientService.getPatientById(id);
+    public ResponseEntity<?> getPatientById(@PathVariable Long id) {
+
+        try {
+            return ResponseEntity.ok().body(patientService.getPatientById(id)); //200
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build(); //404
+        }
+
     } //OK
 
     @DeleteMapping("/{id}")
 
-    public void deletePatientById(@PathVariable Long id) {
-        patientService.deletePatientById(id);
-    } //OK
+    public ResponseEntity<?> deletePatientById(@PathVariable Long id) {
+
+        try {
+            patientService.deletePatientById(id);
+            return ResponseEntity.ok().build(); //200
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+
+        } //OK
 
 
 //    @PostMapping
@@ -52,4 +66,5 @@ public class PatientController {
 //    }
 
     }
+}
 

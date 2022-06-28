@@ -29,12 +29,10 @@ public class Patient {
     @NotBlank
     private String name;
 
-    @Range(min=1, max=150)
+    @Range(min = 1, max = 150)
     private int age;
 
     @ManyToOne
-
-
     @JoinColumn(name = "doctor_id")
     @JsonBackReference
 

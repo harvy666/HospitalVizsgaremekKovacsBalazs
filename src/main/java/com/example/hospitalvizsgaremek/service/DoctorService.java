@@ -31,17 +31,19 @@ public class DoctorService {
     }
 
 
-    public void saveDoctor(Doctor doctor) {
-         doctorRepository.save(doctor);
+    public Doctor saveDoctor(Doctor doctor) {
+         return doctorRepository.save(doctor);
     }
 
-    public void savePatient(Long id, Patient patient) {
+    public Patient savePatient(Long id, Patient patient) {
        var  optionalDoctor= doctorRepository.findById(id);
        if (optionalDoctor.isPresent()) {
            Doctor doctor=optionalDoctor.get();
            doctor.getPatients().add(patient);
            doctorRepository.save(doctor);
+           return patient;
        }
+       return null;
     }
 
 

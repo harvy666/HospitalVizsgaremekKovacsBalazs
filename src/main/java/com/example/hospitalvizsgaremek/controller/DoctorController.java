@@ -4,9 +4,15 @@ package com.example.hospitalvizsgaremek.controller;
 import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.service.DoctorService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/doctor")
@@ -24,38 +30,62 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public Doctor getDoctorById(@PathVariable Long id) {
-        return doctorService.getDoctorById(id);
-    } //OK
+    public ResponseEntity<?> getDoctorById(@PathVariable Long id) { //OK
+        try {
+            return ResponseEntity.ok().body(doctorService.getDoctorById(id)); //200
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build(); //404
+        }
+    }
+
+
 
 
     @DeleteMapping("/{id}")
 
-    public void deleteDoctorById(@PathVariable Long id) {
-        doctorService.deleteDoctorById(id);
-    } //OK
+    public ResponseEntity<?> deleteDoctorById(@PathVariable Long id) {  //OK
+
+        try {
+            doctorService.deleteDoctorById(id);
+            return ResponseEntity.ok().build(); //200
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());        }
+
+    }
 
 
 
     @PostMapping
 
-    public void saveDoctor(@RequestBody Doctor doctor) {
-    doctorService.saveDoctor(doctor);
+    public ResponseEntity<?> saveDoctor(@RequestBody @Valid Doctor doctor, BindingResult result) { //TODO validation NOT WORKING
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(
+                    result.getFieldErrors().stream()
+                            .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage))
+                            .toString()
+            );
+        }
+        return ResponseEntity.ok().body(doctorService.saveDoctor(doctor));
+
+
     } //OK adding a new doctor with a patient creates the patient to (checked by its own findAll)
 
 
     @PostMapping("/{id}/patient")
 
-    public void savePatient(@PathVariable Long id, @RequestBody Patient patient) {
-        doctorService.savePatient(id,patient);
+    public ResponseEntity<?> savePatient(@PathVariable Long id, @RequestBody @Valid Patient patient, BindingResult result) { //TODO validation NOT WORKING
+
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(
+                    result.getFieldErrors().stream()
+                            .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage))
+                            .toString()
+            );
+        }
+        return ResponseEntity.ok().body(doctorService.savePatient(id,patient));
+
     }
-//
-//    @PutMapping("/{id}")
-//    public void updateDoctorById(@PathVariable Long id, @RequestBody Doctor doctor) {
-//        doctor.setId(id);
-//        doctorService.saveDoctor(doctor);
-//
-//    }
+
 
 
 }
