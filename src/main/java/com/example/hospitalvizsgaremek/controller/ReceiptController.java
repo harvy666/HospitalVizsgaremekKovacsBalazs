@@ -3,6 +3,7 @@ package com.example.hospitalvizsgaremek.controller;
 import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.ReceiptService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -24,11 +25,15 @@ public class ReceiptController {
     }
 
     @GetMapping
+    @Operation(summary = "Returns all receipts.")
+
     public List<Receipt> getAllReceipts() {
         return receiptService.getAllReceipts();
     } //OK
 
     @GetMapping("/{id}")
+    @Operation(summary = "Returns a receipt by id.")
+
     public ResponseEntity<?> getReceiptById(@PathVariable Long id){
         try {
             return ResponseEntity.ok().body(receiptService.getReceiptById(id)); //200
@@ -38,6 +43,8 @@ public class ReceiptController {
     } //OK
 
     @PostMapping
+    @Operation(summary = "Creates a new receipt. ")
+
     public ResponseEntity<?> saveReceipt(@RequestBody @Valid Receipt receipt, BindingResult result){ //OK
 
         if (result.hasErrors()) {
@@ -53,6 +60,8 @@ public class ReceiptController {
     } //OK
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Deletes  a receipt by id and removes it from all patients. ")
+
 
     public ResponseEntity<?> deleteReceipt(@PathVariable Long id) { //OK  //TODO cant delete Receipt what is already assigned to a Patient
 
@@ -68,6 +77,8 @@ public class ReceiptController {
 
 
     @PutMapping("/{id}")
+    @Operation(summary = "Updates  a receipt by id. ")
+
 
     public  void updateReceipt(@PathVariable Long id, @RequestBody Receipt receipt){ //OK
         receipt.setId(id);

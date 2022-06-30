@@ -4,6 +4,9 @@ package com.example.hospitalvizsgaremek.controller;
 import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.service.DoctorService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -16,6 +19,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/doctor")
+@OpenAPIDefinition(info = @Info(title = "API for Hospital"))
+
 public class DoctorController {
 
     private DoctorService doctorService;
@@ -24,11 +29,14 @@ public class DoctorController {
         this.doctorService = doctorService;
     }
 
+    @Operation(summary = "Returns all doctors.")
     @GetMapping
+
     public List<Doctor> getAllDoctors() { //OK
         return doctorService.getAllDoctors();
     }
 
+    @Operation(summary = "Returns a  doctor by  id.")
     @GetMapping("/{id}")
     public ResponseEntity<?> getDoctorById(@PathVariable Long id) { //OK
         try {
@@ -40,7 +48,7 @@ public class DoctorController {
 
 
 
-
+    @Operation(summary = "Deletes a doctor by  id.")
     @DeleteMapping("/{id}")
 
     public ResponseEntity<?> deleteDoctorById(@PathVariable Long id) {  //OK
@@ -54,7 +62,7 @@ public class DoctorController {
     }
 
 
-
+    @Operation(summary = "Creates a new doctor. ")
     @PostMapping
 
     public ResponseEntity<?> saveDoctor(@RequestBody @Valid Doctor doctor, BindingResult result) { //TODO validation NOT WORKING
@@ -70,6 +78,7 @@ public class DoctorController {
 
     } //OK adding a new doctor with a patient creates the patient to (checked by its own findAll)
 
+    @Operation(summary = "Add a new patient to an already existing doctor. ")
 
     @PostMapping("/{id}/patient")
 

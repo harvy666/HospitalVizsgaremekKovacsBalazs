@@ -2,6 +2,7 @@ package com.example.hospitalvizsgaremek.controller;
 
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.service.PatientService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +22,15 @@ public class PatientController {
     }
 
     @GetMapping
+    @Operation(summary = "Returns all patients.")
+
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();
     } //OK
 
     @GetMapping("/{id}")
+    @Operation(summary = "Returns a patient by id.")
+
 
     public ResponseEntity<?> getPatientById(@PathVariable Long id) {
 
@@ -38,6 +43,8 @@ public class PatientController {
     } //OK
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Deletes  a patient by id.")
+
 
     public ResponseEntity<?> deletePatientById(@PathVariable Long id) {
 
