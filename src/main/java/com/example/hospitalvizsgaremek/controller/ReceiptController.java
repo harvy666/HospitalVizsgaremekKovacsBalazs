@@ -50,7 +50,6 @@ public class ReceiptController {
         return ResponseEntity.ok().body(receiptService.save(receipt));
 
 
-       // receiptService.save(receipt);
     } //OK
 
     @DeleteMapping("/{id}")
