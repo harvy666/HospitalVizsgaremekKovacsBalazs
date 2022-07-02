@@ -3,6 +3,7 @@ package com.example.hospitalvizsgaremek.service;
 import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.repository.DoctorRepository;
+import com.example.hospitalvizsgaremek.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,11 +13,12 @@ import java.util.List;
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
+    private PatientRepository patientRepository;
 
 
-
-    public DoctorService(DoctorRepository doctorRepository) {
+    public DoctorService(DoctorRepository doctorRepository, PatientRepository patientRepository) {
         this.doctorRepository = doctorRepository;
+        this.patientRepository = patientRepository;
     }
 
     public List<Doctor> getAllDoctors() {
@@ -28,6 +30,13 @@ public class DoctorService {
     }
 
     public void deleteDoctorById(Long id) {
+        List<Patient> patients=patientRepository.findAll();
+
+        for(Patient patient : patients) {
+            if(patient.getDoctor().getId()==id) {
+                patient.setDoctor(null);
+            }
+        }
         doctorRepository.deleteById(id);
     }
 

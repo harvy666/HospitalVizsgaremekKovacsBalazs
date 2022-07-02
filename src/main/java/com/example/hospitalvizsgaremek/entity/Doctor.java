@@ -33,7 +33,7 @@ public class Doctor {
 
 
 
-    @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "doctor")
    @JsonManagedReference
    // @JsonBackReference //maybe good/other problem?
 
