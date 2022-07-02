@@ -83,7 +83,6 @@ public class ReceiptIntegrationTests {
     @Test
     void oneReceiptStored_deleteById_getAllShouldReturnEmptyList() {
         Receipt testReceipt =restTemplate.postForObject(entityUrl, INSULIN, Receipt.class);
-        assertNotNull(testReceipt.getId());
         restTemplate.delete(entityUrl + "/" + testReceipt.getId());
         Receipt [] result = restTemplate.getForObject(entityUrl, Receipt[].class);
         assertEquals(0, result.length);

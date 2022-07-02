@@ -30,10 +30,10 @@ public class DoctorService {
     }
 
     public void deleteDoctorById(Long id) {
-        List<Patient> patients=patientRepository.findAll();
+        List<Patient> patients = patientRepository.findAll();
 
-        for(Patient patient : patients) {
-            if(patient.getDoctor().getId()==id) {
+        for (Patient patient : patients) {
+            if (patient.getDoctor().getId() == id) {
                 patient.setDoctor(null);
             }
         }
@@ -42,29 +42,18 @@ public class DoctorService {
 
 
     public Doctor saveDoctor(Doctor doctor) {
-         return doctorRepository.save(doctor);
+        return doctorRepository.save(doctor);
     }
 
     public Patient savePatient(Long id, Patient patient) {
-       var  optionalDoctor= doctorRepository.findById(id);
-       if (optionalDoctor.isPresent()) {
-           Doctor doctor=optionalDoctor.get();
-           doctor.getPatients().add(patient);
-           doctorRepository.save(doctor);
-           return patient;
-       }
-       return null;
+        var optionalDoctor = doctorRepository.findById(id);
+        if (optionalDoctor.isPresent()) {
+            Doctor doctor = optionalDoctor.get();
+            doctor.getPatients().add(patient);
+            doctorRepository.save(doctor);
+            return patient;
+        }
+        return null;
     }
-
-
-//    public void(Patient patient) {
-//
-//        Doctor doctor = patient.getDoctor();
-//        List<Patient> patients = doctor.getPatients();
-//        patients.add(patient);
-//        doctorRepository.save(doctor);
-//        patientRepository.save(patient);
-//    }
-
 
 }

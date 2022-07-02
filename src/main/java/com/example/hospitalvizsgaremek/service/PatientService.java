@@ -34,28 +34,6 @@ public class PatientService {
         patientRepository.deleteById(id);
     }
 
-//    public void save(Patient patient) {
-//        //var optionalDoctor=doctorRepository.findById(patient.getDoctor().getId());
-//
-//        Doctor doctor2=patient.getDoctor();
-//        // save to doctor list TODO
-//        if(optionalDoctor.isPresent()) {
-//        Doctor doctor = optionalDoctor.get();
-//        List<Patient> patients=doctor.getPatients();
-//        patients.add(patient);
-//        patientRepository.save(patient);
-//        doctorRepository.save(doctor);
-//        }
-
-
-    public void save(Patient patient) {
-
-        Doctor doctor = patient.getDoctor();
-        List<Patient> patients = doctor.getPatients();
-        patients.add(patient);
-        doctorRepository.save(doctor);
-        patientRepository.save(patient);
-    }
 }
 
 

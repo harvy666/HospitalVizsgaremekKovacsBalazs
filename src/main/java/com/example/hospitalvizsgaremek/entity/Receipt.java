@@ -7,9 +7,6 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-//todo validate all field+ add table/column name+onetoone and many anno
 
 
 @Data
@@ -26,9 +23,8 @@ public class Receipt {
     @NotBlank
     private String name;
 
-    @Range(min=1, max=9999)
+    @Range(min = 1, max = 9999)
     private int price;
-
 
 
 }

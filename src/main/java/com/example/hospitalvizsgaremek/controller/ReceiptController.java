@@ -1,6 +1,5 @@
 package com.example.hospitalvizsgaremek.controller;
 
-import com.example.hospitalvizsgaremek.entity.Doctor;
 import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.ReceiptService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,23 +28,23 @@ public class ReceiptController {
 
     public List<Receipt> getAllReceipts() {
         return receiptService.getAllReceipts();
-    } //OK
+    }
 
     @GetMapping("/{id}")
     @Operation(summary = "Returns a receipt by id.")
 
-    public ResponseEntity<?> getReceiptById(@PathVariable Long id){
+    public ResponseEntity<?> getReceiptById(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok().body(receiptService.getReceiptById(id)); //200
+            return ResponseEntity.ok().body(receiptService.getReceiptById(id));
         } catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build(); //404
+            return ResponseEntity.notFound().build();
         }
-    } //OK
+    }
 
     @PostMapping
     @Operation(summary = "Creates a new receipt. ")
 
-    public ResponseEntity<?> saveReceipt(@RequestBody @Valid Receipt receipt, BindingResult result){ //OK
+    public ResponseEntity<?> saveReceipt(@RequestBody @Valid Receipt receipt, BindingResult result) {
 
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(
@@ -63,24 +62,23 @@ public class ReceiptController {
     @Operation(summary = "Deletes  a receipt by id and removes it from all patients. ")
 
 
-    public ResponseEntity<?> deleteReceipt(@PathVariable Long id) { //OK  //TODO cant delete Receipt what is already assigned to a Patient
+    public ResponseEntity<?> deleteReceipt(@PathVariable Long id) {
 
         try {
             receiptService.deleteReceipt(id);
-            return ResponseEntity.ok().build(); //200
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage().toString());
+            return ResponseEntity.badRequest().body(e.getMessage());
 
         }
     }
-
 
 
     @PutMapping("/{id}")
     @Operation(summary = "Updates  a receipt by id. ")
 
 
-    public  void updateReceipt(@PathVariable Long id, @RequestBody Receipt receipt){ //OK
+    public void updateReceipt(@PathVariable Long id, @RequestBody Receipt receipt) {
         receipt.setId(id);
         receiptService.save(receipt);
     }

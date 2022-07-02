@@ -47,7 +47,6 @@ public class DoctorController {
     }
 
 
-
     @Operation(summary = "Deletes a doctor by  id.")
     @DeleteMapping("/{id}")
 
@@ -57,7 +56,8 @@ public class DoctorController {
             doctorService.deleteDoctorById(id);
             return ResponseEntity.ok().build(); //200
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());        }
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
 
     }
 
@@ -76,7 +76,7 @@ public class DoctorController {
         return ResponseEntity.ok().body(doctorService.saveDoctor(doctor));
 
 
-    } //OK adding a new doctor with a patient creates the patient to (checked by its own findAll)
+    }
 
     @Operation(summary = "Add a new patient to an already existing doctor. ")
 
@@ -91,10 +91,9 @@ public class DoctorController {
                             .toString()
             );
         }
-        return ResponseEntity.ok().body(doctorService.savePatient(id,patient));
+        return ResponseEntity.ok().body(doctorService.savePatient(id, patient));
 
     }
-
 
 
 }

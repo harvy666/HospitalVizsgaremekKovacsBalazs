@@ -26,7 +26,7 @@ public class PatientController {
 
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();
-    } //OK
+    }
 
     @GetMapping("/{id}")
     @Operation(summary = "Returns a patient by id.")
@@ -40,7 +40,7 @@ public class PatientController {
             return ResponseEntity.notFound().build(); //404
         }
 
-    } //OK
+    }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletes  a patient by id.")
@@ -54,24 +54,7 @@ public class PatientController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
 
-        } //OK
-
-
-//    @PostMapping
-//
-//    public void savePatient(@RequestBody Patient patient) {
-//        patientService.save(patient);
-//    } //TODO how to save a Patient to a specific Doctor?  In the Doctor repo?
-
-
-//    //meg kell adni az id-t a Jsonban akkor felulirja a Beteget, de az Orvosbol tovabbra is eltunik
-//    @PutMapping("/{id}")
-//    public void updatePatientById(@PathVariable Long id, @RequestBody Patient patient) {
-//        patient.setId(id);
-//        patientService.save(patient);
-//
-//    }
-
+        }
     }
 }
 

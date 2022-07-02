@@ -12,7 +12,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-//todo validate all field+ add table/column name+onetoone and many anno
 
 @Data
 @AllArgsConstructor
@@ -35,8 +34,6 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     @JsonBackReference
-
-    //@JsonManagedReference //maybe good?
     private Doctor doctor;
 
 
