@@ -30,7 +30,5 @@ public class Receipt {
     private int price;
 
 
-//    @OneToOne
-//    private Patient patient;
 
 }
