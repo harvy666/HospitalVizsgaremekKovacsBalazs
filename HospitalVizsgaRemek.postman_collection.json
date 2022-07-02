@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "3b3ba077-c2e4-45a7-9aed-a1600d1b0a54",
+		"name": "HospitalVizsgaRemek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10471502"
+	},
+	"item": [
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "getAllDoctors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctor/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewDoctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n        \r\n        \"patients\": [\r\n            {\r\n                \r\n                \"name\": \"DSDnnb Sanders\",\r\n                \"age\": 83,\r\n                \"receipt\": null\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDoctorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctor/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDoctorById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctor/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewPatient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"dggdgv Williams\",\r\n        \"age\": 1693,\r\n        \"doctor\": {\r\n            \"id\": 1,\r\n            \"name\": \"Dr. House\"\r\n        },\r\n        \"receipt\": {\r\n                    \"id\": 1,\r\n                    \"name\": \"Insulin\"\r\n                    \r\n                }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctor/1/patient",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"1",
+								"patient"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Receipt",
+			"item": [
+				{
+					"name": "getAllReceipt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/receipt/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"receipt",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReceiptById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/receipt/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"receipt",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewReceipt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"Mega\",\r\n    \"price\": 8730\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/receipt/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"receipt",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReceipt",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/receipt/44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"receipt",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReceipt",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Insulin\",\r\n    \"price\": 877777\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/receipt/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"receipt",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "getAllPatients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatientById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPatientById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReceiptFromPatients",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/receipt/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"receipt",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
