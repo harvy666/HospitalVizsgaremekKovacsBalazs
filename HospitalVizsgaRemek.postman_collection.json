@@ -61,14 +61,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/doctor/5",
+							"raw": "localhost:8080/doctor/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"doctor",
-								"5"
+								"1"
 							]
 						}
 					},
@@ -80,14 +80,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/doctor/6",
+							"raw": "localhost:8080/doctor/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"doctor",
-								"6"
+								"1"
 							]
 						}
 					},
@@ -100,7 +100,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \r\n        \"name\": \"dggdgv Williams\",\r\n        \"age\": 1693,\r\n        \"doctor\": {\r\n            \"id\": 1,\r\n            \"name\": \"Dr. House\"\r\n        },\r\n        \"receipt\": {\r\n                    \"id\": 1,\r\n                    \"name\": \"Insulin\"\r\n                    \r\n                }\r\n}",
+							"raw": "{\r\n        \r\n        \"name\": \"dggdgv Wilffffliams\",\r\n        \"age\": 15,\r\n        \"doctor\": {\r\n            \"id\": 1,\r\n           \r\n        },\r\n        \"receipt\": {\r\n                    \"id\": 1,\r\n                    \"name\": \"Insulin\"\r\n                    \r\n                }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -172,7 +172,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"name\": \"Mega\",\r\n    \"price\": 8730\r\n}",
+							"raw": "{\r\n\r\n    \"name\": \"Mega\",\r\n    \"price\": 87304\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,14 +199,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/receipt/44",
+							"raw": "localhost:8080/receipt/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"receipt",
-								"44"
+								"1"
 							]
 						}
 					},
