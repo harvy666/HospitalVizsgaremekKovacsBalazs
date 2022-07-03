@@ -17,13 +17,14 @@ public class ReceiptUnitTests {
 private ReceiptService receiptService;
 @Mock
 private ReceiptRepository receiptRepository;
+
 //USELESS
 
 //@Test
 //void addReceipt_findById_should_return_Receipt() {
-//    int id=1;
+//    long id=1;
 //    Receipt receipt = new Receipt(1,"Insulin",987);
-//    when(receiptService.findById(1).thenReturn(receipt));
+//    when(receiptService.getReceiptById(id).the;
 //
 //}
 
