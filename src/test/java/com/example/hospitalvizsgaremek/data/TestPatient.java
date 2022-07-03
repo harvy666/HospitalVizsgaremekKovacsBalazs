@@ -7,7 +7,7 @@ import com.example.hospitalvizsgaremek.testmodels.Receipt;
 
 import static com.example.hospitalvizsgaremek.data.TestDoctor.doctor1;
 
-//USELESS CODE!
+//USELESS
 public interface TestPatient {
 
     Patient patient1=new Patient(1,"John Smith",32,doctor1,new Receipt(1,"Insulin",999));
