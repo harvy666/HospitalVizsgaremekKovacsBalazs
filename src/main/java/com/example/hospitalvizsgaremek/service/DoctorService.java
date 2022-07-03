@@ -50,6 +50,7 @@ public class DoctorService {
         if (optionalDoctor.isPresent()) {
             Doctor doctor = optionalDoctor.get();
             doctor.getPatients().add(patient);
+            patientRepository.save(patient);
             doctorRepository.save(doctor);
             return patient;
         }

@@ -76,8 +76,6 @@ public class ReceiptController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Updates  a receipt by id. ")
-
-
     public void updateReceipt(@PathVariable Long id, @RequestBody Receipt receipt) {
         receipt.setId(id);
         receiptService.save(receipt);
