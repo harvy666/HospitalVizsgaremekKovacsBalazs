@@ -56,7 +56,7 @@ public class ReceiptController {
         return ResponseEntity.ok().body(receiptService.save(receipt));
 
 
-    } //OK
+    }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletes  a receipt by id and removes it from all patients. ")
