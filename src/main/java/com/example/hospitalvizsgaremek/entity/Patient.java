@@ -2,18 +2,18 @@ package com.example.hospitalvizsgaremek.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -39,4 +39,17 @@ public class Patient {
 
     @OneToOne
     private Receipt receipt;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Patient patient = (Patient) o;
+        return id == patient.id && age == patient.age && Objects.equals(name, patient.name) && Objects.equals(doctor, patient.doctor) && Objects.equals(receipt, patient.receipt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age, doctor, receipt);
+    }
 }
