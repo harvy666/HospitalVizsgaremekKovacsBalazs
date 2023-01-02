@@ -11,4 +11,23 @@ public class MainController {
     public String getIndex() {
         return "index";
     }
+
+    @GetMapping("/doctors")
+
+    public String getDoctor() {
+        return "doctors";
+    }
+
+    @GetMapping("/patients")
+
+    public String getPatients() {
+        return "patients";
+    }
+
+    @GetMapping("/receipts")
+
+    public String getRecipes() {
+        return "receipts";
+    }
+
 }
