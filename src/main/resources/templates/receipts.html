@@ -7,5 +7,24 @@
 <body>
 <h1>Receipts</h1>
 
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+
+
+
+    </thead>
+    <tbody>
+    <tr th:each="receipt : ${receipts}">
+        <td th:text="${receipt.id}"></td>
+        <td th:text="${receipt.name}"></td>
+        <td th:text="${receipt.price}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
 </body>
 </html>

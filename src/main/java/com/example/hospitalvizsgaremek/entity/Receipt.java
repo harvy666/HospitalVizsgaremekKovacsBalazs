@@ -29,7 +29,7 @@ public class Receipt {
     private String name;
 
 
-    // populating the html only works with toString need a bidirectional onetoone for better solution?
+     //populating the html only works with toString need a bidirectional onetoone for better solution?
     @Override
     public String toString() {
         return name;

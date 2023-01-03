@@ -37,6 +37,7 @@ public class Patient {
     private Doctor doctor;
 
 
+
     @OneToOne
     private Receipt receipt;
 
