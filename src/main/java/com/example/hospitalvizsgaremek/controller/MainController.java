@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     private DoctorService doctorService;
     private PatientService patientService;
+    private ReceiptController receiptController;
 
-    public MainController(DoctorService doctorService, PatientService patientService) {
+    public MainController(DoctorService doctorService, PatientService patientService, ReceiptController receiptController) {
         this.doctorService = doctorService;
         this.patientService = patientService;
+        this.receiptController = receiptController;
     }
 
     @GetMapping("/")
@@ -31,7 +33,9 @@ public class MainController {
 
     @GetMapping("/patients")
 
-    public String getPatients() {
+    public String getPatients(Model model) {
+        model.addAttribute("patients",patientService.getAllPatients() );
+
         return "patients";
     }
 

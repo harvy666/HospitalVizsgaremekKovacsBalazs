@@ -6,5 +6,28 @@
 </head>
 <body>
 <h1>Patients</h1>
+
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Doctor</th>
+    <th>Receipt</th>
+
+
+    </thead>
+    <tbody>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.id}"></td>
+        <td th:text="${patient.name}"></td>
+        <td th:text="${patient.age}"></td>
+        <td th:text="${patient.doctor.name}"></td>
+        <td th:text="${patient.receipt}"></td>  <!  Only works with toString need a bidirectional onetoone for better solution? >
+    </tr>
+    </tbody>
+
+</table>
+
 </body>
 </html>
