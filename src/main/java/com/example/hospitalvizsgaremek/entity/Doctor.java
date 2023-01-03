@@ -26,7 +26,6 @@ public class Doctor {
     private long id;
 
     @NotBlank(message = "Doctor name cannot be empty!")
-
     private String name;
 
 
@@ -34,7 +33,6 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
    @JsonManagedReference
     @ToString.Exclude
-
 
     private List<Patient> patients;
 
