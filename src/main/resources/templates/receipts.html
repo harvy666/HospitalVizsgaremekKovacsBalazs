@@ -22,6 +22,8 @@
         <td th:text="${receipt.price}"></td>
 
         <td><a href="#" th:href="@{/receipt/{id}(id=${receipt.id})}">View</a></td>
+        <td><a href="#" th:href="@{/receipt/{id}/update(id=${receipt.id})}">Update</a></td>
+
 
     </tr>
     </tbody>

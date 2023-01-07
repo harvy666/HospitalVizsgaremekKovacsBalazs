@@ -21,22 +21,19 @@ import java.util.Objects;
 
 public class Receipt {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @NotBlank
     private String name;
+    @Range(min = 1, max = 9999)
+    private int price;
 
 
-     //populating the html only works with toString need a bidirectional onetoone for better solution?
+    //populating the html only works with toString need a bidirectional onetoone for better solution?
     @Override
     public String toString() {
         return name;
     }
-
-    @Range(min = 1, max = 9999)
-    private int price;
 
     @Override
     public boolean equals(Object o) {
