@@ -4,6 +4,8 @@ import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.ReceiptService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +14,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
-
-@RestController
+//Changed so I can return simple String htmls, need to add request/responsebody to every other regular methods?
+@Controller
 @RequestMapping("/receipt")
 public class ReceiptController {
 
@@ -39,6 +41,15 @@ public class ReceiptController {
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{id}/update")
+    @Operation(summary = "Returns a receipt by id.")
+
+    public String getUpdateReceiptById(@PathVariable Long id, Model model) {
+       model.addAttribute(receiptService.getReceiptById(id));
+       return "updateReceipt";
+
     }
 
     @PostMapping
