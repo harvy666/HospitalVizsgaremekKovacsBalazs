@@ -13,10 +13,12 @@
 
 
     <label > Id:</label> <br>  <br>
-    <input type="text" th:value="${receipt.getId()}"  required /> <br> <br>
+    <input type="text" th:value="*{id}"  required /> <br> <br>
+<!--    <p>Id: <input type="text" th:field="*{id}" /></p>-->
+
 
     <label > Name:</label> <br>  <br>
-    <input type="text" th:value="${receipt.getName()}"  required /> <br> <br>
+    <input type="text" th:value="${receipt.name}"  required /> <br> <br>
 
     <label > Price:</label> <br>  <br>
     <input type="text" th:value="${receipt.getPrice}" min="1" max="9999"  required /> <br> <br>
