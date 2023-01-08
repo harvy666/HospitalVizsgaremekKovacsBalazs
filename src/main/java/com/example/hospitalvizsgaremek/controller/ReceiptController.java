@@ -35,15 +35,18 @@ public class ReceiptController {
 
     @PostMapping("/add")
     public String addReceipt(@ModelAttribute("addReceipt") Receipt receipt, Model model) {
-        //empMap.put(employee.getId(), employee);
         receiptService.save(receipt);
         model.addAttribute("receipt", receipt);
         return "redirect:/receipts";
     }
 
+    @GetMapping("/edit/{id}")
+    public String getUpdateReceipt(@PathVariable Long id, Model model) {
+        model.addAttribute("updateReceipt", receiptService.getReceiptById(id));
+        return "updateReceipt";
+    }
 
-
-
+    //TODO Postmappinget megcsinalni az edit/id val
 
 
     /////////////////////////////////////////////////////////////
