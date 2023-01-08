@@ -38,7 +38,7 @@ public class ReceiptController {
         //empMap.put(employee.getId(), employee);
         receiptService.save(receipt);
         model.addAttribute("receipt", receipt);
-        return "receipts";
+        return "redirect:/receipts";
     }
 
 
