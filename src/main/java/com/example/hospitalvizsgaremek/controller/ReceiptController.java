@@ -25,6 +25,28 @@ public class ReceiptController {
         this.receiptService = receiptService;
     }
 
+    ///////////////THYMELEAF////////////////////////////////////
+
+    @GetMapping("/add")
+    public String addReceipt() {
+
+        return "addReceipt";
+    }
+
+    @PostMapping("/add")
+    public String addReceipt(@ModelAttribute("addReceipt") Receipt receipt, Model model) {
+        //empMap.put(employee.getId(), employee);
+        receiptService.save(receipt);
+        model.addAttribute("receipt", receipt);
+        return "receipts";
+    }
+
+
+
+
+
+
+    /////////////////////////////////////////////////////////////
     @GetMapping
     @Operation(summary = "Returns all receipts.")
 
