@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add new Receipt</title>
@@ -9,28 +9,22 @@
 <h1>Add new Receipt</h1>
 
 
-<!--<form th:action="@{/employee/add}" th:object="${addEmployee}"-->
-<!--      method="post">-->
-<!--    <table>-->
-<!--        <tr>-->
-<!--            <td>Emp Id</td>-->
-<!--            <td><input type="text" name="id" /></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>First Name</td>-->
-<!--            <td><input type="text" name="firstName" /></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Last Name</td>-->
-<!--            <td><input type="text" name="lastName" /></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Age</td>-->
-<!--            <td><input type="number" name="age" /></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--    <input type="submit" value="Submit" />-->
-<!--</form>-->
+<form th:action="@{/receipt/add}" th:object="${addReceipt}"
+      method="post">
+    <table>
+
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" /></td>
+        </tr>
+
+        <tr>
+            <td>Price</td>
+            <td><input type="number" name="price" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" />
+</form>
 
 
 </body>
