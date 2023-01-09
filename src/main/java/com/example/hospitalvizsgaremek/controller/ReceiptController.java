@@ -46,8 +46,28 @@ public class ReceiptController {
         return "updateReceipt";
     }
 
-    //TODO Postmappinget megcsinalni az edit/id val
+    //TODO add validation to edit/update form too
 
+    @PostMapping("/edit/{id}")
+
+    public String getUpdateReceipt(@ModelAttribute("updateReceipt") Receipt receipt, @PathVariable Long id, Model model) {
+
+        receiptService.save(receipt);
+        model.addAttribute("receipt", receipt);
+        return "redirect:/receipts";
+
+    }
+
+//
+//    @PostMapping("/employee/edit/{id}")
+//    public String updateEmployee(@ModelAttribute("editEmployee") Employee employee, @PathVariable("id") String empId,
+//                                 Model model) {
+//
+//        empMap.put(empId, employee);
+//
+//        model.addAttribute("employees", empMap.values());
+//        return "employee-list";
+//    }
 
     /////////////////////////////////////////////////////////////
     @GetMapping

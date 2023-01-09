@@ -9,19 +9,20 @@
 <body>
 <h1>Update Receipt</h1>
 
-<form method="post" name="receiptForm" th:action="@{/receipt/{id}(id=${receipt.getId()})}">
+<!--<form method="post" name="receiptForm" th:action="@{/receipt/{id}(id=${receipt.getId()})}">-->
+<form method="post" th:action="@{/receipt/edit/{id}(id=${receipt.getId()})}" th:object="${addReceipt}">
 
 
     <label> Id:</label> <br> <br>
-    <input disabled="disabled" required th:value="*{id}" type="text"/> <br> <br>
+    <input disabled="disabled" name="id" required th:value="${receipt.getId()}" type="text"/> <br> <br>
     <!--    <p>Id: <input type="text" th:field="*{id}" /></p>-->
 
 
     <label> Name:</label> <br> <br>
-    <input required th:value="${receipt.name}" type="text"/> <br> <br>
+    <input name="name" required th:value="${receipt.getName()}" type="text"/> <br> <br>
 
     <label> Price:</label> <br> <br>
-    <input max="9999" min="1" required th:value="${receipt.getPrice}" type="text"/> <br> <br>
+    <input max="9999" min="1" name="price" required th:value="${receipt.getPrice}" type="text"/> <br> <br>
 
     <!--    <label for="userstory">User Story:</label> <br> <br>-->
     <!--    <textarea id="userstory" th:text="${story.getUserStory()}" name="userstory" rows="4" cols="50"   minlength="1" maxlength="400"  required></textarea> <br> <br>-->
