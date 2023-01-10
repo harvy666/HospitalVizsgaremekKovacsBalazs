@@ -2,6 +2,7 @@ package com.example.hospitalvizsgaremek.controller;
 
 import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.entity.Receipt;
+import com.example.hospitalvizsgaremek.service.DoctorService;
 import com.example.hospitalvizsgaremek.service.PatientService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
@@ -18,16 +19,19 @@ import java.util.NoSuchElementException;
 public class PatientController {
 
     private PatientService patientService;
+    private DoctorService doctorService;
 
 
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, DoctorService doctorService) {
         this.patientService = patientService;
+        this.doctorService = doctorService;
     }
 
     //THYMELEAF
-    //TODO addpatient html
+    //TODO dropdown WORKS, saving DOES NOT
     @GetMapping("/add")
-    public String addPatient() {
+    public String addPatient(Model model) {
+        model.addAttribute("doctors", doctorService.getAllDoctors());
 
         return "addPatient";
     }
