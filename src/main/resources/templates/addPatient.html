@@ -16,11 +16,16 @@
             <td>Name</td>
             <td><input name="name" required type="text"/></td>
         </tr>
-        
+
         <tr>
             <td>Age</td>
             <td><input max="150" min="1" name="age" required type="number"/></td>
         </tr>
+
+        <select id="dropDownList">
+            <option value="0">select option</option>
+            <option th:each="doctor : ${doctors}" th:text="${doctor.name}" th:value="${doctor.id}"></option>
+        </select>
     </table>
     <input type="submit" value="Submit"/>
 </form>
