@@ -5,13 +5,14 @@ import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.PatientService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-@RestController
+@Controller
 @RequestMapping("/patient")
 
 public class PatientController {

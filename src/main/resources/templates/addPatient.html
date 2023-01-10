@@ -9,20 +9,21 @@
 <h1>Add new Patient</h1>
 
 
-<!--<form th:action="@{/patient/add}" th:object="${addPatient}"-->
-<!--      method="post">-->
-<!--    <table>-->
-<!--        <tr>-->
-<!--            <td>Name</td>-->
-<!--            <td><input name="name" required type="text"/></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Price</td>-->
-<!--            <td><input max="9999" min="1" name="price" required type="number"/></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--    <input type="submit" value="Submit"/>-->
-<!--</form>-->
+<form method="post" th:action="@{/patient/add}"
+      th:object="${addPatient}">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input name="name" required type="text"/></td>
+        </tr>
+        
+        <tr>
+            <td>Age</td>
+            <td><input max="150" min="1" name="age" required type="number"/></td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit"/>
+</form>
 
 
 </body>
