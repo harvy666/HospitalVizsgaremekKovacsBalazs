@@ -23,7 +23,8 @@
         <td th:text="${patient.name}"></td>
         <td th:text="${patient.age}"></td>
         <td th:text="${patient.doctor.name}"></td>
-        <td th:text="${patient.receipt}"></td>  <!  Only works with toString need a bidirectional onetoone for better solution? >
+        <td th:text="${patient.receipt}"></td>
+        <! Only works with toString need a bidirectional onetoone for better solution? >
 
         <td><a href="#" th:href="@{/patient/{id}(id=${patient.id})}">View</a></td>
 
@@ -31,6 +32,7 @@
     </tbody>
 
 </table>
+<br> <a th:href="@{/patient/add}">Add Patient</a> <br>
 
 </body>
 </html>

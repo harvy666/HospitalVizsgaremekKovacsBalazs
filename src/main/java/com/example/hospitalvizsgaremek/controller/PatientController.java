@@ -1,9 +1,11 @@
 package com.example.hospitalvizsgaremek.controller;
 
 import com.example.hospitalvizsgaremek.entity.Patient;
+import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.PatientService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +23,22 @@ public class PatientController {
         this.patientService = patientService;
     }
 
+    //THYMELEAF
+    //TODO addpatient html
+    @GetMapping("/add")
+    public String addPatient() {
+
+        return "addPatient";
+    }
+
+    @PostMapping("/add")
+    public String addPatient(@ModelAttribute("addPatient") Patient patient, Model model) {
+        patientService.save(patient);
+        model.addAttribute("patient", patient);
+        return "redirect:/patients";
+    }
+
+    /////////
     @GetMapping
     @Operation(summary = "Returns all patients.")
 
