@@ -32,14 +32,15 @@ public class PatientController {
     @GetMapping("/add")
     public String addPatient(Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
+        model.addAttribute("patient", new Patient());
 
         return "addPatient";
     }
 
     @PostMapping("/add")
-    public String addPatient(@ModelAttribute("addPatient") Patient patient, Model model) {
+    public String addPatient(@ModelAttribute Patient patient) {
         patientService.save(patient);
-        model.addAttribute("patient", patient);
+       // model.addAttribute("patient", patient);
         return "redirect:/patients";
     }
 
