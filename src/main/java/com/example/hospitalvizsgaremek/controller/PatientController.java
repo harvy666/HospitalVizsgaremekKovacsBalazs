@@ -28,7 +28,7 @@ public class PatientController {
     }
 
     //THYMELEAF
-    //TODO dropdown WORKS, saving DOES NOT
+    //TODO   save a Receipt too+updating the Patient
     @GetMapping("/add")
     public String addPatient(Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
