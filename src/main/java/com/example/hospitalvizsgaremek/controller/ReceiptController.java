@@ -89,7 +89,7 @@ public class ReceiptController {
     }
 
     @GetMapping("/{id}/update")
-    @Operation(summary = "Returns a receipt by id.")
+    @Operation(summary = "Updates a receipt by id.")
 
     public String getUpdateReceiptById(@PathVariable Long id, Model model) {
        model.addAttribute(receiptService.getReceiptById(id));

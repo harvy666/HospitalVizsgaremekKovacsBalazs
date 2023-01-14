@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-
+//TODO AT THE END clear out not used methods from the old 1.0 non-Thymeleaf version
 @Controller
 @RequestMapping("/patient")
 
@@ -43,9 +43,34 @@ public class PatientController {
     }
 
     @PostMapping("/add")
-    public String addPatient(@ModelAttribute Patient patient) {
+    public String addPatient(@ModelAttribute("addPatient") Patient patient,Model model) {
         patientService.save(patient);
+        model.addAttribute("patient",patient);
         return "redirect:/patients";
+    }
+
+//    public String addReceipt(@ModelAttribute("addReceipt") Receipt receipt, Model model) {
+//        receiptService.save(receipt);
+//        model.addAttribute("receipt", receipt);
+//        return "redirect:/receipts";
+//    }
+
+    @GetMapping("/edit/{id}")
+    public String getUpdatePatient(@PathVariable Long id, Model model) {
+       // model.addAttribute("updatePatient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
+        return "updatePatient";
+    }
+
+    //TODO add validation to edit/update form too
+
+    @PostMapping("/edit/{id}")
+
+    public String getUpdatePatient(@ModelAttribute("updatePatient") Patient patient, @PathVariable Long id, Model model) {
+
+        patientService.save(patient);
+        model.addAttribute("patient", patient);
+        return "redirect:/patients";
+
     }
 
     /////////
@@ -67,6 +92,15 @@ public class PatientController {
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build(); //404
         }
+
+    }
+
+    @GetMapping("/{id}/update")
+    @Operation(summary = "Update a patient by id.")
+
+    public String getUpdateReceiptById(@PathVariable Long id, Model model) {
+        model.addAttribute(patientService.getPatientById(id));
+        return "updatePatient";
 
     }
 
