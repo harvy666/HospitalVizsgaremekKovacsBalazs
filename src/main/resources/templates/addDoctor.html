@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new Doctor</title>
+</head>
+<body>
+
+<h1>Add new Doctor</h1>
+
+
+<form method="post" th:action="@{/doctor/add}"
+      th:object="${doctor}">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input name="name" required type="text"/></td>
+    </tr>
+  </table>
+  <input type="submit" value="Submit"/>
+</form>
+
+
+</body>
+</html>

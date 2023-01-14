@@ -8,6 +8,8 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-@RestController
+@Controller
 @RequestMapping("/doctor")
 @OpenAPIDefinition(info = @Info(title = "API for Hospital"))
 
@@ -28,6 +30,25 @@ public class DoctorController {
     public DoctorController(DoctorService doctorService) {
         this.doctorService = doctorService;
     }
+
+
+    //THYMELEAF
+    //TODO updateDoctor later
+    @GetMapping("/add")
+    public String addDoctor() {
+        return "addDoctor";
+    }
+
+    @PostMapping("/add")
+    public String addDoctor(Doctor doctor) {
+        doctorService.saveDoctor(doctor);
+        return "redirect:/doctors";
+    }
+
+    /////////
+
+
+
 
     @Operation(summary = "Returns all doctors.")
     @GetMapping
