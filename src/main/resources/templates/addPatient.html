@@ -22,14 +22,23 @@
             <td><input max="150" min="1" name="age" required type="number"/></td>
         </tr>
 
-        <select id="dropDownList" th:field="*{doctor}">
-            <option value="0">select option</option>
+        <select th:field="*{doctor}">
+            <option value="0">select doctor</option>
             <option th:each="doctor : ${doctors}"
                     th:text="${doctor.name}"
                     th:value="${doctor.id}">
 
             </option>
         </select>
+
+        <select  th:field="*{receipt}">
+            <option value="0">select receipt</option>
+            <option th:each="receipt : ${receipts}"
+                    th:text="${receipt.name}"
+                    th:value="${receipt.id}">
+            </option>
+        </select>
+        
     </table>
     <input type="submit" value="Submit"/>
 </form>

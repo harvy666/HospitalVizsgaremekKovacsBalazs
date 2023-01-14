@@ -4,6 +4,7 @@ import com.example.hospitalvizsgaremek.entity.Patient;
 import com.example.hospitalvizsgaremek.entity.Receipt;
 import com.example.hospitalvizsgaremek.service.DoctorService;
 import com.example.hospitalvizsgaremek.service.PatientService;
+import com.example.hospitalvizsgaremek.service.ReceiptService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,19 +21,22 @@ public class PatientController {
 
     private PatientService patientService;
     private DoctorService doctorService;
+    private ReceiptService receiptService;
 
-
-    public PatientController(PatientService patientService, DoctorService doctorService) {
+    public PatientController(PatientService patientService, DoctorService doctorService, ReceiptService receiptService) {
         this.patientService = patientService;
         this.doctorService = doctorService;
+        this.receiptService = receiptService;
     }
+
 
     //THYMELEAF
     //TODO   save a Receipt too+updating the Patient
-    
+
     @GetMapping("/add")
     public String addPatient(Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
+        model.addAttribute("receipts",receiptService.getAllReceipts());
         model.addAttribute("patient", new Patient());
 
         return "addPatient";
@@ -41,7 +45,6 @@ public class PatientController {
     @PostMapping("/add")
     public String addPatient(@ModelAttribute Patient patient) {
         patientService.save(patient);
-       // model.addAttribute("patient", patient);
         return "redirect:/patients";
     }
 
