@@ -38,16 +38,12 @@ public class PatientController {
         model.addAttribute("doctors", doctorService.getAllDoctors());
         model.addAttribute("receipts",receiptService.getAllReceipts());
         model.addAttribute("patient", new Patient());
-        System.out.println("getmap-add----------------------------------------------------------");
-
-
         return "addPatient";
     }
 
     @PostMapping("/add")
     public String addPatient(Patient patient) {
         patientService.save(patient);
-        System.out.println("postmap-add------------------------------------------------------");
         return "redirect:/patients";
     }
 
@@ -56,7 +52,6 @@ public class PatientController {
     @GetMapping("/edit/{id}")
     public String getUpdatePatient(@PathVariable Long id, Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
-        System.out.println("getmap-edit----------------------------------------------------------");
         model.addAttribute("patient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
         return "updatePatient";
     }
@@ -67,7 +62,6 @@ public class PatientController {
 
     public String getUpdatePatient( Patient patient) {
         patientService.save(patient);
-        System.out.println("postmap-edit------------------------------------------------------");
         return "redirect:/patients";
 
     }
