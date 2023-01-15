@@ -9,7 +9,8 @@
 <body>
 <h1>Update Patient</h1>
 
-<!--<form method="post" name="receiptForm" th:action="@{/receipt/{id}(id=${receipt.getId()})}">-->
+
+<!--it uses the getUpdatePatient post methond on edit/id's Patient patient object here -->
 <form method="post" th:action="@{/patient/edit/{id}(id=${patient.getId()})}" th:object="${patient}">
 
 

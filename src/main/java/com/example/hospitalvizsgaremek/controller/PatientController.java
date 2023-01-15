@@ -66,9 +66,8 @@ public class PatientController {
 
     @PostMapping("/edit/{id}")
 
-    public String getUpdatePatient(@ModelAttribute("updatePatient") Patient patient, @PathVariable Long id, Model model) {
+    public String getUpdatePatient(@ModelAttribute("updatePatient") Patient patient) {
 
-        model.addAttribute("patient", patient);
         patientService.save(patient);
         return "redirect:/patients";
 
