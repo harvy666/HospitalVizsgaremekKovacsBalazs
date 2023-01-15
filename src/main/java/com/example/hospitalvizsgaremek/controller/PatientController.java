@@ -57,7 +57,8 @@ public class PatientController {
 
     @GetMapping("/edit/{id}")
     public String getUpdatePatient(@PathVariable Long id, Model model) {
-       // model.addAttribute("updatePatient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
+        model.addAttribute("doctors", doctorService.getAllDoctors());
+        model.addAttribute("updatePatient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
         return "updatePatient";
     }
 
@@ -67,8 +68,8 @@ public class PatientController {
 
     public String getUpdatePatient(@ModelAttribute("updatePatient") Patient patient, @PathVariable Long id, Model model) {
 
-        patientService.save(patient);
         model.addAttribute("patient", patient);
+        patientService.save(patient);
         return "redirect:/patients";
 
     }

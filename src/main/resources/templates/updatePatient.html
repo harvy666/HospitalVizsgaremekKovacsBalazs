@@ -10,7 +10,7 @@
 <h1>Update Patient</h1>
 
 <!--<form method="post" name="receiptForm" th:action="@{/receipt/{id}(id=${receipt.getId()})}">-->
-<form method="post" th:action="@{/patient/edit/{id}(id=${patient.getId()})}" th:object="${updatePatient}">
+<form method="post" th:action="@{/patient/edit/{id}(id=${patient.getId()})}" th:object="${patient}">
 
 
     <label> Id:</label> <br> <br>
@@ -22,30 +22,20 @@
     <input name="name" required th:value="${patient.getName()}" type="text"/> <br> <br>
 
     <label> Price:</label> <br> <br>
-    <input max="150" min="1" name="age" required th:value="${patient.getAge}" type="text"/> <br> <br>
+    <input max="150" min="1" name="age" required th:value="${patient.getAge}" type="number"/> <br> <br>
+<!--still not working but getting there-->
+    <select th:field="*{doctor}">
+        <option th:value="${patient.doctor.id}" th:text="${patient.doctor.name}"></option>
+        <option th:each="doctor : ${doctors}"
+                th:text="${doctor.name}"
+                th:value="${doctor.id}">
 
-    <!--    <label for="userstory">User Story:</label> <br> <br>-->
-    <!--    <textarea id="userstory" th:text="${story.getUserStory()}" name="userstory" rows="4" cols="50"   minlength="1" maxlength="400"  required></textarea> <br> <br>-->
+        </option>
+    </select> <br>
 
-    <!--    <label for="acceptancecriteria">Acceptance Criteria:</label> <br> <br>-->
-    <!--    <textarea id="acceptancecriteria" th:text="${story.getAcceptanceCriteria()}" name="acceptancecriteria" rows="4" cols="50"   minlength="1" maxlength="400"  required></textarea> <br> <br>-->
 
-    <!--    <label for="businessvalue">Business value:</label> <br> <br>-->
-    <!--    <input type="number" th:value="${story.getBusinessValue()}" id="businessvalue" name="businessvalue"   min="0.5" max="40.0" step="0.5" required/> <br> <br>-->
 
-    <!--    <label for="estimation">Estimation:</label> <br> <br>-->
-    <!--    <input type="text" th:value="${story.getEstimation()}" id="estimation" name="estimation"  required /><br> <br>-->
-
-    <!--    <label for="status">Status</label>-->
-    <!--    <select name="status" id="status">-->
-    <!--        <option value="planning" th:selected="'planning' == ${story.getStatus()}">planning</option>-->
-    <!--        <option value="todo" th:selected="'todo' == ${story.getStatus()}">todo</option>-->
-    <!--        <option value="in progress" th:selected="'in progress' == ${story.getStatus()}">in progress</option>-->
-    <!--        <option value="review" th:selected="'review' == ${story.getStatus()}">review</option>-->
-    <!--        <option value="done" th:selected="'done' == ${story.getStatus()}">done</option>-->
-    <!--    </select> <br> <br>-->
-
-    <input type="submit" value="Update Receipt"> <br> <br>
+    <input type="submit" value="Update Patient"> <br> <br>
 </form>
 
 
