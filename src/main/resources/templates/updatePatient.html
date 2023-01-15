@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
@@ -11,7 +9,8 @@
 
 
 <!--it uses the getUpdatePatient post methond on edit/id's Patient patient object here -->
-<form method="post" th:action="@{/patient/edit/{id}(id=${patient.getId()})}" th:object="${patient}">
+<form method="post" th:action="@{/patient/edit/{id}(id=${patient.getId()})}"
+                    th:object="${patient}">
 
 
     <label> Id:</label> <br> <br>
@@ -22,11 +21,12 @@
     <label> Name:</label> <br> <br>
     <input name="name" required th:value="${patient.getName()}" type="text"/> <br> <br>
 
-    <label> Price:</label> <br> <br>
+    <label> Age:</label> <br> <br>
     <input max="150" min="1" name="age" required th:value="${patient.getAge}" type="number"/> <br> <br>
-<!--still not working but getting there-->
+
     <select th:field="*{doctor}">
         <option th:value="${patient.doctor.id}" th:text="${patient.doctor.name}"></option>
+<!--        the doctors dont load for some reason-->
         <option th:each="doctor : ${doctors}"
                 th:text="${doctor.name}"
                 th:value="${doctor.id}">
