@@ -43,17 +43,12 @@ public class PatientController {
     }
 
     @PostMapping("/add")
-    public String addPatient(@ModelAttribute("addPatient") Patient patient,Model model) {
+    public String addPatient(Patient patient) {
         patientService.save(patient);
-        model.addAttribute("patient",patient);
         return "redirect:/patients";
     }
 
-//    public String addReceipt(@ModelAttribute("addReceipt") Receipt receipt, Model model) {
-//        receiptService.save(receipt);
-//        model.addAttribute("receipt", receipt);
-//        return "redirect:/receipts";
-//    }
+
 
     @GetMapping("/edit/{id}")
     public String getUpdatePatient(@PathVariable Long id, Model model) {
@@ -66,8 +61,7 @@ public class PatientController {
 
     @PostMapping("/edit/{id}")
 
-    public String getUpdatePatient(@ModelAttribute("updatePatient") Patient patient) {
-
+    public String getUpdatePatient( Patient patient) {
         patientService.save(patient);
         return "redirect:/patients";
 
