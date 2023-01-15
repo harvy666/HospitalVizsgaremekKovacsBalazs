@@ -25,15 +25,20 @@
     <input max="150" min="1" name="age" required th:value="${patient.getAge}" type="number"/> <br> <br>
 
     <select th:field="*{doctor}">
-        <option th:value="${patient.doctor.id}" th:text="${patient.doctor.name}"></option>
-<!--        the doctors dont load for some reason-->
+        <option value="0">Select doctor</option>
         <option th:each="doctor : ${doctors}"
                 th:text="${doctor.name}"
                 th:value="${doctor.id}">
-
         </option>
     </select> <br>
 
+    <select th:field="*{receipt}">
+        <option value="0">Select receipt</option>
+        <option th:each="receipt : ${receipts}"
+                th:text="${receipt.name}"
+                th:value="${receipt.id}">
+        </option>
+    </select> <br>
 
 
     <input type="submit" value="Update Patient"> <br> <br>

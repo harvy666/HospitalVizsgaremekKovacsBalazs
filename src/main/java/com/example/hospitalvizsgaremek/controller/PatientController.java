@@ -51,6 +51,7 @@ public class PatientController {
     //TODO DOES NOT GET CALLED WTF?
     @GetMapping("/edit/{id}")
     public String getUpdatePatient(@PathVariable Long id, Model model) {
+        model.addAttribute("receipts",receiptService.getAllReceipts());
         model.addAttribute("doctors", doctorService.getAllDoctors());
         model.addAttribute("patient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
         return "updatePatient";
