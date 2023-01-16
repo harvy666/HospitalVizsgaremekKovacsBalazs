@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>patients</title>
+    <link th:href="@{/tables.css}" rel="stylesheet" />
+
 </head>
 <body>
 <h1>Patients</h1>
+<br><br><br><br><br>
 
-<table>
+<table class="center">
     <thead>
     <tr>
         <th>Id</th>
@@ -35,7 +38,10 @@
     </tbody>
 
 </table>
-<br> <a th:href="@{/patient/add}">Add Patient</a> <br>
+
+<div class="addLink">
+<br> <a th:href="@{/patient/add}" class="addNew" >Add New Patient</a> <br>
+</div>
 
 </body>
 </html>

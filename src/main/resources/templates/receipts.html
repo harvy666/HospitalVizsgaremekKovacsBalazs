@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>receipts</title>
+    <link th:href="@{/tables.css}" rel="stylesheet" />
+
 </head>
 <body>
 <h1>Receipts</h1>
+<br><br><br><br><br>
 
 
 
 
-<table>
+<table class="center">
     <thead>
     <tr>
         <th>Id</th>
@@ -35,8 +38,9 @@
 
 </table>
 
-<br> <a th:href="@{/receipt/add}">Add Receipt</a> <br>
-
+<div class="addLink">
+<br> <a th:href="@{/receipt/add}" class="addNew" >Add New Receipt</a> <br>
+</div>
 
 
 </body>

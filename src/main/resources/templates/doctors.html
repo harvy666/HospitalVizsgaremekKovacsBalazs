@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>doctors</title>
+    <link th:href="@{/tables.css}" rel="stylesheet" />
 </head>
 <body>
-<h1>Doctor</h1>
 
 <br>
 
-<table>
+<h1>Doctors</h1>
+<br><br><br><br><br>
+
+
+<table class="center">
     <thead>
     <tr>
         <th>Id</th>
@@ -20,13 +24,13 @@
     <tbody>
     <tr th:each="doctor : ${doctors}">
         <td th:text="${doctor.id}"></td>
-        <td th:text="${doctor.name+ ' ||' }"></td>
+        <td th:text="${doctor.name}"></td>
         <td
                 th:each="patient: ${doctor.patients}"
-                th:text="${patient.name+ ','}">
+                th:text="${patient.name}">
         </td>
-        <! Remove later, only for demo purpose >
-        <td><a href="#" th:href="@{/doctor/{id}(id=${doctor.id})}">View</a></td>
+<!--         Remove later, only for demo purpose -->
+<!--        <td><a href="#" th:href="@{/doctor/{id}(id=${doctor.id})}">View</a></td>-->
 
 
     </tr>
@@ -35,7 +39,11 @@
     </tbody>
 
 </table>
-<br> <a th:href="@{/doctor/add}">Add Doctor</a> <br>
+<br>
+<div class="addLink">
+    <a th:href="@{/doctor/add}" class="addNew" >Add New Doctor</a> <br>
+</div>
+
 
 
 </body>
