@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
-//@ToString
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -28,12 +28,9 @@ public class Receipt {
     @Range(min = 1, max = 9999)
     private int price;
 
+    //TODO add some extra notes field or something
 
-    //populating the html only works with toString need a bidirectional onetoone for better solution?
-    @Override
-    public String toString() {
-        return name;
-    }
+
 
     @Override
     public boolean equals(Object o) {

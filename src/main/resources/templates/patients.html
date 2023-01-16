@@ -22,9 +22,8 @@
         <td th:text="${patient.id}"></td>
         <td th:text="${patient.name}"></td>
         <td th:text="${patient.age}"></td>
-        <td th:text="${patient.doctor}"></td>
-        <td th:text="${patient.receipt}"></td>
-        <! Only works with toString need a bidirectional onetoone for better solution? >
+        <td th:text="${patient.doctor?.name}"></td>
+        <td th:text="${patient.receipt?.name}"></td>
 
         <td><a href="#" th:href="@{/patient/{id}(id=${patient.id})}">View</a></td>
         <td><a href="#" th:href="@{/patient/edit/{id}(id=${patient.id})}">Update</a></td>

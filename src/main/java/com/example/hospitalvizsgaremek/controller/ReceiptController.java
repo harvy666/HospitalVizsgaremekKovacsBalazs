@@ -58,18 +58,7 @@ public class ReceiptController {
 
     }
 
-//
-//    @PostMapping("/employee/edit/{id}")
-//    public String updateEmployee(@ModelAttribute("editEmployee") Employee employee, @PathVariable("id") String empId,
-//                                 Model model) {
-//
-//        empMap.put(empId, employee);
-//
-//        model.addAttribute("employees", empMap.values());
-//        return "employee-list";
-//    }
 
-    /////////////////////////////////////////////////////////////
     @GetMapping
     @Operation(summary = "Returns all receipts.")
 
@@ -114,20 +103,16 @@ public class ReceiptController {
 
     }
 
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Deletes  a receipt by id and removes it from all patients. ")
+    @GetMapping("/delete/{id}")
+    @Operation(summary = "Deletes  a receipt by id  ")
 
 
-    public ResponseEntity<?> deleteReceipt(@PathVariable Long id) {
+    public String deleteReceipt(@PathVariable Long id) {
 
-        try {
             receiptService.deleteReceipt(id);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-
+        return "redirect:/receipts";
         }
-    }
+
 
 
     @PutMapping("/{id}")
