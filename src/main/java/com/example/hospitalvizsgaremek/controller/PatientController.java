@@ -33,10 +33,14 @@ public class PatientController {
     //THYMELEAF
     //TODO   save a Receipt too+updating the Patient
 
-    @GetMapping("/add")
-    public String addPatient(Model model) {
+    @ModelAttribute
+    public void addAttributes(Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
         model.addAttribute("receipts",receiptService.getAllReceipts());
+    }
+
+    @GetMapping("/add")
+    public String addPatient(Model model) {
         model.addAttribute("patient", new Patient());
         return "addPatient";
     }
@@ -51,8 +55,6 @@ public class PatientController {
     //TODO DOES NOT GET CALLED WTF?
     @GetMapping("/edit/{id}")
     public String getUpdatePatient(@PathVariable Long id, Model model) {
-        model.addAttribute("receipts",receiptService.getAllReceipts());
-        model.addAttribute("doctors", doctorService.getAllDoctors());
         model.addAttribute("patient", patientService.getPatientById(id)); //TODO keep this model as patient/doctor?
         return "updatePatient";
     }
