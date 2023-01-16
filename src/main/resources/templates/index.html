@@ -4,21 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <title>index</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+
 </head>
 <body>
 
-<h1>Main page</h1>
-<a href="/doctors">Doctors</a>
-<a href="/patients">Patients</a>
-<a href="/receipts">Receipts</a>
+<div class="center">
+    <h1>Main page</h1>
+</div>
+
+<!--<div>-->
+<!--    <a href="/doctors"> <img th:src="@{images/doctor.png}" alt="Doctors">Doctors</a>-->
+<!--    <a href="/doctors"> <img th:src="@{images/patient.png}" alt="Patients">Patients</a>-->
+<!--    <a href="/doctors"> <img th:src="@{images/pills.png}" alt="Receipts">Receipts</a>-->
+<!--</div>-->
+<div >
+    <div class="column">
+        <h2>Doctors</h2>
+    </div>
+    <div class="column">
+        <h2>Patients</h2>
+    </div>
+    <div class="column">
+        <h2>Receipts</h2>
+    </div>
+</div>
 
 
 
+<div>
 
+    <div class="column">
+        <a href="/doctors"> <img th:src="@{images/doctor.png }"
+                                 width="400"
+                                 height="500"
+                                 alt="Doctors"></a>
+    </div>
 
+    <div class="column">
+        <a href="/doctors"> <img th:src="@{images/patient.png}"
+                                 width="400"
+                                 height="500"
+                                 alt="Patients"></a>
+    </div>
 
+    <div class="column">
+        <a href="/doctors"> <img th:src="@{images/pills.png}"
+                                 width="400"
+                                 height="500"
+                                 alt="Receipts"></a>
+    </div>
 
-
+</div>
 
 
 </body>
