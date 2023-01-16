@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+
 //TODO AT THE END clear out not used methods from the old 1.0 non-Thymeleaf version
 @Controller
 @RequestMapping("/patient")
@@ -36,7 +37,7 @@ public class PatientController {
     @ModelAttribute
     public void addAttributes(Model model) {
         model.addAttribute("doctors", doctorService.getAllDoctors());
-        model.addAttribute("receipts",receiptService.getAllReceipts());
+        model.addAttribute("receipts", receiptService.getAllReceipts());
     }
 
     @GetMapping("/add")
@@ -63,7 +64,7 @@ public class PatientController {
 
     @PostMapping("/edit/{id}")
 
-    public String getUpdatePatient( Patient patient) {
+    public String getUpdatePatient(Patient patient) {
         patientService.save(patient);
         return "redirect:/patients";
 
@@ -100,19 +101,14 @@ public class PatientController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     @Operation(summary = "Deletes  a patient by id.")
 
 
-    public ResponseEntity<?> deletePatientById(@PathVariable Long id) {
+    public String deletePatientById(@PathVariable Long id) {
 
-        try {
-            patientService.deletePatientById(id);
-            return ResponseEntity.ok().build(); //200
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-
-        }
+        patientService.deletePatientById(id);
+        return "redirect:/patients";
     }
 }
 

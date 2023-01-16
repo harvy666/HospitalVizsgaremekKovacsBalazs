@@ -25,7 +25,7 @@
     <input max="150" min="1" name="age" required th:value="${patient.getAge}" type="number"/> <br> <br>
 
     <select th:field="*{doctor}">
-        <option value="0">Select doctor</option>
+<!--        <option value="1">Select doctor</option>-->
         <option th:each="doctor : ${doctors}"
                 th:text="${doctor.name}"
                 th:value="${doctor.id}">
@@ -33,7 +33,7 @@
     </select> <br>
 
     <select th:field="*{receipt}">
-        <option value="0">Select receipt</option>
+<!--        <option value="0">Select receipt</option>-->
         <option th:each="receipt : ${receipts}"
                 th:text="${receipt.name}"
                 th:value="${receipt.id}">
