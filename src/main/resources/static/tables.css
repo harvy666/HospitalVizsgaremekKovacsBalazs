@@ -2,6 +2,10 @@ table {
   border: 3px solid black;
   text-align: center;
   width:60%
+
+
+
+
 }
 
 .center {
@@ -13,15 +17,19 @@ th {
     background-color: #42eba1
 }
 
+
+
 tr:nth-child(even) {background-color: #f2f2f2;}
 
 h1 {
+font-size: 70px;
 text-align:center
 }
 
-.addNew { font-size: 70px; text-decoration: none;}
+.addNew { font-size: 45px; text-decoration: none;}
 
 .addLink {
 text-align:center
 
 }
+

@@ -18,7 +18,7 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Patients</th>
+        <th colspan="10">Patients</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +29,8 @@
                 th:each="patient: ${doctor.patients}"
                 th:text="${patient.name}">
         </td>
+
+<!--        <p>Age: <span th:text="*{age}?: '(no age specified)'">27</span>.</p>-->
 <!--         Remove later, only for demo purpose -->
 <!--        <td><a href="#" th:href="@{/doctor/{id}(id=${doctor.id})}">View</a></td>-->
 
