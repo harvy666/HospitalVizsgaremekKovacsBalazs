@@ -45,6 +45,22 @@ public class DoctorController {
         return "redirect:/doctors";
     }
 
+    @GetMapping("/edit/{id}")
+    public String getUpdateDoctor(@PathVariable Long id, Model model) {
+        model.addAttribute("doctor",doctorService.getDoctorById(id));
+        return "updateDoctor";
+    }
+
+    //TODO add validation
+
+    @PostMapping("/edit/{id}")
+
+    public String getUpdateDoctor(Doctor doctor) {
+        doctorService.saveDoctor(doctor);
+        return "redirect:/doctors";
+
+    }
+
     /////////
 
 

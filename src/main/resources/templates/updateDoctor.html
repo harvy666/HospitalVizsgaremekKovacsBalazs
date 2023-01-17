@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Receipt</title>
+</head>
+<body>
+<h1>Update Receipt</h1>
+
+<!--<form method="post" name="receiptForm" th:action="@{/receipt/{id}(id=${receipt.getId()})}">-->
+<form method="post" th:action="@{/doctor/edit/{id}(id=${doctor.getId()})}" th:object="${doctor}">
+
+
+    <label> Id:</label> <br> <br>
+    <input disabled="disabled" name="id" required th:value="${doctor.getId()}" type="text"/> <br> <br>
+
+
+    <label> Name:</label> <br> <br>
+    <input name="name" required th:value="${doctor.getName()}" type="text"/> <br> <br>
+
+
+
+    <input type="submit" value="Update Doctor"> <br> <br>
+</form>
+
+
+</body>
+</html>
+
