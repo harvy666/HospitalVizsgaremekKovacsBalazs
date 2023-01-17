@@ -29,17 +29,9 @@
                 th:each="patient: ${doctor.patients}"
                 th:text="${patient.name}">
         </td>
-
-<!--        <p>Age: <span th:text="*{age}?: '(no age specified)'">27</span>.</p>-->
-<!--         Remove later, only for demo purpose -->
-<!--        <td><a href="#" th:href="@{/doctor/{id}(id=${doctor.id})}">View</a></td>-->
-
-
+        <td colspan="10"></td>
     </tr>
-
-
     </tbody>
-
 </table>
 <br>
 <div class="addLink">
