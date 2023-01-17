@@ -1,6 +1,11 @@
 # HospitalVizsgaremekKovacsBalazs
 Hospital Vizsgaremek
 
+Version 2.0 Thymeleafes megoldás egyelőre a rework branchen
+
+
+Version 1.0 a final solution commitban a main branchen
+
 -Az alkalmazás egy kórház felépítését hivatott szimulálni ahol vannak Doktorok, Betegek és Receptek
 -Az Doktoroknak lehet több Betegje de a Betegeknek csak 1 Doktorja lehet, illetve a Betegek rendelkeznek 1 Recepttel is
 
