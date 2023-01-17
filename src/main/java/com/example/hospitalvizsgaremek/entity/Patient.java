@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
+import java.util.Optional;
 
 
 @Getter
@@ -53,4 +54,6 @@ public class Patient {
     public int hashCode() {
         return Objects.hash(id, name, age, doctor, receipt);
     }
+
+
 }

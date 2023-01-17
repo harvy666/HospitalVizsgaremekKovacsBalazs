@@ -69,17 +69,11 @@ public class DoctorController {
 
 
     @Operation(summary = "Deletes a doctor by  id.")
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
 
-    public ResponseEntity<?> deleteDoctorById(@PathVariable Long id) {  //OK
-
-        try {
-            doctorService.deleteDoctorById(id);
-            return ResponseEntity.ok().build(); //200
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-
+    public String deleteDoctorById(@PathVariable Long id) {  //OK
+        doctorService.deleteDoctorById(id);
+        return "redirect:/doctors";
     }
 
 

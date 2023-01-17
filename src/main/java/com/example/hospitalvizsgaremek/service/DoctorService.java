@@ -33,7 +33,7 @@ public class DoctorService {
         List<Patient> patients = patientRepository.findAll();
 
         for (Patient patient : patients) {
-            if (patient.getDoctor().getId() == id) {
+            if (patient.getDoctor()!=null && patient.getDoctor().getId() == id ) {
                 patient.setDoctor(null);
             }
         }
